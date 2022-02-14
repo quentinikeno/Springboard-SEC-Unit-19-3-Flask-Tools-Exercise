@@ -1,5 +1,4 @@
-from dis import Instruction
-from flask import Flask, request, render_template, redirect, flash, jsonify
+from flask import Flask, request, render_template, redirect, flash
 from flask_debugtoolbar import DebugToolbarExtension
 from surveys import satisfaction_survey
 
@@ -23,7 +22,7 @@ def index():
 def show_question(q_number):
     """Show the current question."""
     num_responses = len(responses)
-    
+
     #Redirect to thank you page if all questions are answered
     if(num_responses == len(satisfaction_survey.questions)):
         flash('You have already completed the survey.', 'warning')
