@@ -7,7 +7,13 @@ content %}
 <form action="/answers" method="POST">
 	{% for choice in question.choices %}
 	<div>
-		<input type="radio" name="{{choice}}" id="{{choice}}" />
+		<input
+			type="radio"
+			name="response"
+			id="{{choice}}"
+			value="{{choice}}"
+			required="true"
+		/>
 		<label for="{{choice}}">{{choice}}</label>
 	</div>
 	{% endfor %}
