@@ -24,6 +24,22 @@ a.button {
 	cursor: pointer;
 }
 
-input[type="radio"] {
+input[type="radio"],
+label {
 	cursor: pointer;
+}
+
+.messages p {
+	padding: 1rem;
+	border-radius: 5px;
+}
+
+.messages .error {
+	color: darkred;
+	background-color: rgba(255, 0, 0, 0.1);
+}
+
+.messages .warning {
+	color: rgb(119, 91, 19);
+	background-color: rgba(255, 255, 0, 0.1);
 }

@@ -22,14 +22,19 @@ def index():
 @app.route('/questions/<int:q_number>')
 def show_question(q_number):
     """Show the current question."""
-    #Check that the question number in URL is correct
     num_responses = len(responses)
-    if(q_number != num_responses):
-        #Redirect to correct question
-        return redirect(f'/questions/{num_responses}')
+    
     #Redirect to thank you page if all questions are answered
     if(num_responses == len(satisfaction_survey.questions)):
+        flash('You have already completed the survey.', 'warning')
         return redirect('/thank-you')
+
+    #Check that the question number in URL is correct
+    if(q_number != num_responses):
+        #Redirect to correct question
+        flash('You are trying to answer an invalid question.  Please answer the question below.', 'error')
+        return redirect(f'/questions/{num_responses}')
+    
     question = satisfaction_survey.questions[q_number]
     title = satisfaction_survey.title
     return render_template('question.html', title=title, question=question, q_number=q_number)
