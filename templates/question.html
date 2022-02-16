@@ -20,10 +20,4 @@ content %}
 	<input type="hidden" name="q_number" value="{{q_number}}" />
 	<button type="submit">Next Question</button>
 </form>
-
-{# For demo purposes, show our sessions #} {% if session %}
-<fieldset>
-	<label>Flask Session</label>
-	{{ session }}
-</fieldset>
-{% endif %} {% endblock %}
+{% endblock %}
