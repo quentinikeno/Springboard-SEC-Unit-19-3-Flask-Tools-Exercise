@@ -21,4 +21,9 @@ content %}
 	<button type="submit">Next Question</button>
 </form>
 
-{% endblock %}
+{# For demo purposes, show our sessions #} {% if session %}
+<fieldset>
+	<label>Flask Session</label>
+	{{ session }}
+</fieldset>
+{% endif %} {% endblock %}

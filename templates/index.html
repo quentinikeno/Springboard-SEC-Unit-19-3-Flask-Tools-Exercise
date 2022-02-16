@@ -2,6 +2,8 @@
 content %}
 <h1>{{title}}</h1>
 <p>{{instructions}}</p>
-<a href="/questions/0" class="button">Start the Survey</a>
+<form action="/init-survey" method="post">
+	<button class="button" type="submit">Start the Survey</button>
+</form>
 
 {% endblock %}
