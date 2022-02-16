@@ -3,5 +3,16 @@ content %}
 <h1>{{title}}</h1>
 
 <p>Thank you for taking the survey!</p>
+<hr />
+<p>Here are your answers:</p>
+
+<ul>
+	{% for question in questions %}
+	<li>
+		<strong>{{question.question}}</strong> -
+		{{session['responses'][question.question]}}
+	</li>
+	{% endfor %}
+</ul>
 
 {% endblock %}
