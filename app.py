@@ -13,15 +13,13 @@ def index():
     """Show homepage to start survey."""
     title = satisfaction_survey.title
     instructions = satisfaction_survey.instructions
-    return render_template('index.html', title=title, instructions=instructions)
+    return render_template('start_page.html', title=title, instructions=instructions)
 
 @app.route('/init-survey', methods=['POST'])
 def intialize_survey():
     #Store responses as a list in session
     session['responses'] = []
     return redirect('/questions/0')
-
-responses = []
  
 @app.route('/questions/<int:q_number>')
 def show_question(q_number):
