@@ -58,12 +58,18 @@ def show_question(q_number):
 @app.route('/answers', methods=['POST'])
 def submit_answer():
     """Add answer to responses list and redirect."""
-    q_number = int(request.form['q_number'])
     survey = surveys[session['survey']]
+    
+    q_number = int(request.form['q_number'])
     ans = request.form.get('response')
+    comment = request.form.get('comment', False)
+
     #rebind responses name from session
     responses = session['responses']
     responses.append(ans)
+    if comment:
+        responses.append(comment)
+
     #Update responses in session
     session['responses'] = responses
 
