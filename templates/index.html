@@ -1,9 +1,24 @@
-{% extends 'base.html' %} {% block title %} {{title}} {% endblock %} {% block
-content %}
-<h1>{{title}}</h1>
-<p>{{instructions}}</p>
-<form action="/init-survey" method="post">
-	<button class="button" type="submit">Start the Survey</button>
+{% extends 'base.html' %} {% block title %} Choose a Survey! {% endblock %} {%
+block content %}
+<h1>Welcome!</h1>
+<p>Please choose a survey to take below.</p>
+
+<form action="/survey-select" method="post">
+	<label for="surveys"
+		>Select what you want to share your opinions on...</label
+	>
+
+	<div>
+		<select name="surveys" id="surveys">
+			{% for survey in surveys %}
+			<option value="{{survey}}">{{survey}}</option>
+			{% endfor %}
+		</select>
+	</div>
+
+	<button class="button" type="submit">
+		Tell me more about this survey!
+	</button>
 </form>
 
 {% endblock %}
