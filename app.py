@@ -85,4 +85,4 @@ def submit_answer():
 def show_thank_you():
     survey = surveys[session['survey']]
     title = survey.title
-    return render_template('thank_you.html', title=title)
+    return render_template('thank_you.html', questions=survey.questions, title=title)
