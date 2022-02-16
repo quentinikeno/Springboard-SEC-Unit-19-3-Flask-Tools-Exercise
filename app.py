@@ -31,7 +31,7 @@ def show_start_page():
 @app.route('/init-survey', methods=['POST'])
 def intialize_survey():
     #Store responses as a list in session
-    session['responses'] = []
+    session['responses'] = dict()
     return redirect('/questions/0')
  
 @app.route('/questions/<int:q_number>')
@@ -64,11 +64,13 @@ def submit_answer():
     ans = request.form.get('response')
     comment = request.form.get('comment', False)
 
+    question_title = survey.questions[q_number].question
+
     #rebind responses name from session
     responses = session['responses']
-    responses.append(ans)
+    responses[question_title] = ans
     if comment:
-        responses.append(comment)
+        responses[f"{question_title}_comment"] = comment
 
     #Update responses in session
     session['responses'] = responses

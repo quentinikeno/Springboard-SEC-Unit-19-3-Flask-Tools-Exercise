@@ -29,6 +29,22 @@ label {
 	cursor: pointer;
 }
 
+select {
+	padding: 0.5rem;
+	border-radius: 5px;
+	font-size: 1rem;
+}
+
+textarea {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	padding: 0.5rem;
+}
+
+.mt-1 {
+	margin-top: 1rem;
+}
+
 .messages p {
 	padding: 1rem;
 	border-radius: 5px;
